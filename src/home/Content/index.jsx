@@ -10,7 +10,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "./Components/Button";
 import { validate, convert } from "placa-mercosul";
-import searchPlate from "search-plate-pb";
 
 export const Content = () => {
   const schema = yup.object({
@@ -18,35 +17,35 @@ export const Content = () => {
     categoria: yup.string().required("Categoria Obrigatoria"),
   });
 
+
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
-    setFocus,
+    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const [registro, setRegistro] = useState([]);
+  const [registro, setRegistro] = useState({});
 
 
   function registrar(loginPlaca) {
-    setRegistro([...registro, loginPlaca]);
+    
+    setRegistro(loginPlaca);
     console.log(loginPlaca);
     const isValid = validate(loginPlaca.placa);
     if (isValid === true) {
-      loginPlaca.erro = "a placa tem que ser modelo antigo";
-      loginPlaca.placa = ''
       Resultado = {backGroundColor : 'red'}
-    };
-    if (isValid === false){
+    }else{
       loginPlaca.placa = convert(
         loginPlaca.placa,
         { suffix: "" },
-        loginPlaca.categoria
+        loginPlaca.categoria,
+        reset()
       );
-    };
+    }
   }
   
 
@@ -64,13 +63,10 @@ export const Content = () => {
           <Button />
         </PlaceForm>
         <Resultado>
-          <h2>Placa Gerada: </h2>
-          {registro.map((placa, index) => (
-            <div key={index}>
-              <h3>{placa.placa}</h3>
-              <p>{placa.erro}</p>
+          <h2>Placa Gerada: </h2> 
+            <div >
+              <h3>{registro.placa}</h3>
             </div>
-          ))}
         </Resultado>
       </ContentStyle>
     </BaseContent>
