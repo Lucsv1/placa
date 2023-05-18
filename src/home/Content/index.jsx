@@ -55,7 +55,7 @@ export const Content = () => {
       <span {...register("erro")} />
       <ContentStyle>
         <PlaceForm onSubmit={handleSubmit(registrar)}>
-          <PlaceLabel>Digite qual categoria (carro ou moto)</PlaceLabel>
+          <PlaceLabel>Digite qual categori (carro ou moto)</PlaceLabel>
           <PlaceInput {...register("categoria")} />
           <span>{errors.categoria?.message}</span>
           <PlaceLabel>Placa</PlaceLabel>

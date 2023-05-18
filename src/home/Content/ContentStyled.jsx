@@ -5,7 +5,7 @@ display: flex;
 justify-content: center;
 padding: 10px;
 margin-top: 10%;
-`
+` 
 
 export const ContentStyle = styled.div`
 width: 30%;
