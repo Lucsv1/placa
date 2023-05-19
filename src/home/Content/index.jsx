@@ -3,7 +3,7 @@ import {
   PlaceLabel,
   PlaceForm,
 } from "./Components/SpaceText/Styled";
-import { BaseContent, ContentStyle, Resultado } from "./ContentStyled";
+import { BaseContent, ContentStyle, DivPlaca, Resultado } from "./ContentStyled";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import * as yup from "yup";
@@ -64,9 +64,9 @@ export const Content = () => {
         </PlaceForm>
         <Resultado>
           <h2>Placa Gerada: </h2> 
-            <div >
+            <DivPlaca>
               <h3>{registro.placa}</h3>
-            </div>
+            </DivPlaca  >
         </Resultado>
       </ContentStyle>
     </BaseContent>
