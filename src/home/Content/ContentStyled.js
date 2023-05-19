@@ -24,6 +24,11 @@ export const ContentStyle = styled.div`
 `;
 
 export const DivPlaca = styled.div`
+
+h3{
+  background-color: yellow;
+}
+
   background-color: #333334;
   padding: 10px;
   border-radius: 10px;
@@ -37,6 +42,7 @@ export const DivPlaca = styled.div`
 `;
 
 export const Resultado = styled.div`
+
 
 h2{
     font-family: Arial, Helvetica, sans-serif;
